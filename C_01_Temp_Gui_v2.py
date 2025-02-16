@@ -65,7 +65,7 @@ class Converter():
 
         # retrieve 'history / export' button and disable it at the start
         self.to_history_button = self.button_ref_list[3].config(state=DISABLED)
-
+        #for testing purposes
 
 # main routine
 if __name__ == "__main__":
