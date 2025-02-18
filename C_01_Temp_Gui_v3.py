@@ -74,6 +74,16 @@ class Converter():
             to_convert = self.teemp_entry.get()
             print("to convert", to_convert)
 
+            try:
+                to_convert = float(to_convert)
+                if to_convert >= min_temp:
+                    self.temp_error.config(text="You are OK")
+                else: 
+                    self.temp_error.config(text="Too Low")
+
+            except ValueError:
+                self.temp_error.config(text="Please enter a number!")
+
 
 # main routine
 if __name__ == "__main__":
