@@ -37,7 +37,7 @@ class Converter():
 
         error = "Please enter a number"
         self.answer_error = Label(self.temp_frame, text=error,
-                                fg="#9C0000")
+                                fg="#9C0000", font=("Arial", "14", "bold"))
         self.answer_error.grid(row=3)
 
         # Concersion, help and history / export buttons
@@ -68,31 +68,38 @@ class Converter():
         self.to_history_button = self.button_ref_list[3].config(state=DISABLED)
 
     def check_temp(self, min_temp):
-            """
-            Checks temperature is valid and either invokes calculation
-            function or shows a custom error
-            """
+        """
+        Checks temperature is valid and either invokes calculation
+        function or shows a custom error
+        """
 
 
-            # Retrieve temperature to be converted
-            to_convert = self.temp_entry.get()
-            print("to convert", to_convert)
+        # Retrieve temperature to be converted
+        to_convert = self.temp_entry.get()
 
-            # check that amount to be converted is a numver above absolute zero
-            try:
-                to_convert = float(to_convert)
-                if to_convert >= min_temp:
-                    error = ""
-                else: 
-                    error = "Too Low"
-
-            except ValueError:
+        # check that amount to be converted is a numver above absolute zero
+        try:
+            to_convert = float(to_convert)
+            if to_convert >= min_temp:
+                error = ""
+                self.convert(min_temp)
+            else: 
                 error = "Too Low"
 
-            # display theh error if necessary
-            if error != "":
-                self.answer_error.config(text=error, fg="#9C0000")
-                self.temp_entry.config(bg="#F4CCCC")
+        except ValueError:
+            error = "Please enter a number"
+
+        # display the error if necessary
+        if error != "":
+            self.answer_error.config(text=error, fg="#9C0000")
+            self.temp_entry.config(bg="#F4CCCC")
+
+    def convert(self, min_temp):
+
+        if min_temp == c.ABS_ZERO_CELSUIS:
+            self.answer_error.config(text="Converting to F")
+        else:
+            self.answer_error.config(text="Converting to C")
 
 
 # main routine
