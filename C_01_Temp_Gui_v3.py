@@ -73,9 +73,12 @@ class Converter():
         function or shows a custom error
         """
 
-
         # Retrieve temperature to be converted
         to_convert = self.temp_entry.get()
+
+        # Reset label and entry box (if we had an error)
+        self.answer_error.config(fg="#004C99")
+        self.temp_entry.config(bg="#FFFFFF")
 
         # check that amount to be converted is a numver above absolute zero
         try:
@@ -93,6 +96,7 @@ class Converter():
         if error != "":
             self.answer_error.config(text=error, fg="#9C0000")
             self.temp_entry.config(bg="#F4CCCC")
+            self.temp_entry.delete(FIRST:0, END)
 
     def convert(self, min_temp):
 
