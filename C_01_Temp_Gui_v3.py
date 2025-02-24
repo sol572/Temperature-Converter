@@ -89,7 +89,7 @@ class Converter():
             to_convert = float(to_convert)
             if to_convert >= min_temp:
                 error = ""
-                self.convert(min_temp)
+                self.convert(min_temp, to_convert)
             else: 
                 error = "Too Low"
 
@@ -102,7 +102,7 @@ class Converter():
             self.temp_entry.config(bg="#F4CCCC")
             self.temp_entry.delete(0, END)
 
-    def convert(self, min_temp):
+    def convert(self, min_temp, to_convert):
 
         if min_temp == c.ABS_ZERO_CELSIUS:
             self.answer_error.config(text=f"Converting {to_convert}°C to °F")
