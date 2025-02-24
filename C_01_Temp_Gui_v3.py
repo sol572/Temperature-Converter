@@ -3,7 +3,7 @@ import all_constants as c
 
 class Converter():
     """
-    Temperature conversion tool (C to F or F to C)
+    Temperature conversion tool (°C to °F or °F to °C)
     """
 
     def __init__(self):
@@ -37,7 +37,7 @@ class Converter():
 
         error = "Please enter a number"
         self.answer_error = Label(self.temp_frame, text=error,
-                                fg="#9C0000", font=("Arial", "14", "bold"))
+                                fg="#084C99", font=("Arial", "12", "bold"))
         self.answer_error.grid(row=3)
 
         # Concersion, help and history / export buttons
@@ -77,10 +77,14 @@ class Converter():
         to_convert = self.temp_entry.get()
 
         # Reset label and entry box (if we had an error)
-        self.answer_error.config(fg="#004C99")
+        self.answer_error.config(fg="#004C99", font=("Arial", "13", "bold"))
         self.temp_entry.config(bg="#FFFFFF")
 
-        # check that amount to be converted is a numver above absolute zero
+
+        error = f"Enter a nummber more than / equal to {min_temp}"
+        has_errors = "no"
+
+        # check that amount to be converted is a number above absolute zero
         try:
             to_convert = float(to_convert)
             if to_convert >= min_temp:
@@ -96,14 +100,14 @@ class Converter():
         if error != "":
             self.answer_error.config(text=error, fg="#9C0000")
             self.temp_entry.config(bg="#F4CCCC")
-            self.temp_entry.delete(FIRST:0, END)
+            self.temp_entry.delete(0, END)
 
     def convert(self, min_temp):
 
-        if min_temp == c.ABS_ZERO_CELSUIS:
-            self.answer_error.config(text="Converting to F")
+        if min_temp == c.ABS_ZERO_CELSIUS:
+            self.answer_error.config(text=f"Converting {to_convert}°C to °F")
         else:
-            self.answer_error.config(text="Converting to C")
+            self.answer_error.config(text=f"Converting {to_convert}°F to °C")
 
 
 # main routine
