@@ -24,7 +24,8 @@ def to_fahrenheit(to_convert):
     :param to_convert: Temperature to be converted in °C
     :return: Converted temperature in °F
     """
-    answer round_ans(answer)
+    answer = to_convert * 1.8 + 32
+    answer = round_ans(answer)
 
 
 
