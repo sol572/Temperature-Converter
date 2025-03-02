@@ -84,7 +84,7 @@ class Converter():
         self.answer_error.config(fg="#004C99", font=("Arial", "13", "bold"))
         self.temp_entry.config(bg="#FFFFFF")
 
-        error = f"Enter a nummber more than / equal to {min_temp}"
+        error = f"Enter a number more than / equal to {min_temp}"
         has_errors = "no"
 
         # check that amount to be converted is a number above absolute zero
@@ -97,7 +97,7 @@ class Converter():
                 error = "Too Low"
 
         except ValueError:
-            error = "Please enter a number"
+            error = f"Enter a number more than / equal to {min_temp}"
 
         # display the error if necessary
         if error != "":
