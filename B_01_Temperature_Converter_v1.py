@@ -1,4 +1,5 @@
 from tkinter import *
+from functools import partial  # To prevent unwanted windows
 import all_constants as c
 import conversion_rounding as cr
 
@@ -49,20 +50,8 @@ class Converter:
 
         # button list (button text | bg colour | command | row | column)
         button_details_list = [
-            [
-                "To Celsius",
-                "#990099",
-                lambda: self.check_temp(c.ABS_ZERO_FAHRENHEIT),
-                0,
-                0,
-            ],
-            [
-                "To Fahrenheit",
-                "#008A00",
-                lambda: self.check_temp(c.ABS_ZERO_CELSIUS),
-                0,
-                1,
-            ],
+            ["To Celsius", "#990099", lambda: self.check_temp(c.ABS_ZERO_FAHRENHEIT), 0, 0,],
+            ["To Fahrenheit", "#008A00", lambda: self.check_temp(c.ABS_ZERO_CELSIUS), 0, 1,],
             ["Help / Info", "#FFAA00", self.to_help, 1, 0],
             ["History / Export", "#004C99", "", 1, 1],
         ]
@@ -85,7 +74,7 @@ class Converter:
             self.button_ref_list.append(self.make_button)
 
         # retrieve to_help button
-        self.to_help_button = self.button_ref_list [2]
+        self.to_help_button = self.button_ref_list[2]
 
         # retrieve 'history / export' button and disable it at the start
         self.to_history_button = self.button_ref_list[3]
