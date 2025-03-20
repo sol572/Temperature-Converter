@@ -1,0 +1,8 @@
+***** Temperature Calculations ******
+Generated: 21/03/2025
+
+Here is your calculation history (oldest to newest)...
+12.0°F is -11°C
+12.0°C is 53.6°F
+123.0°F is 51°C
+1234.0°F is 668°C

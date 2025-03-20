@@ -1,0 +1,9 @@
+***** Temperature Calculations ******
+Generated: 20/03/2025
+
+Here is your calculation history (oldest to newest)...
+12.0°C is 53.6°F
+122.0°F is 50°C
+1224.0°F is 662°C
+12245.0°C is 22073.0°F
+122453.0°F is 68012°C
